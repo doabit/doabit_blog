@@ -12,6 +12,7 @@ Capybara.asset_host = "http://localhost:3000"
 RSpec.configure do |config|
   config.include Rack::Test::Methods
 
+
   config.before(:suite) do
      DatabaseCleaner.strategy = :truncation
    end
@@ -24,6 +25,14 @@ RSpec.configure do |config|
      DatabaseCleaner.clean
    end
 end
+
+
+# Factory_girl
+FactoryGirl.definition_file_paths = [
+    File.join(Padrino.root, 'factories'),
+    File.join(Padrino.root, 'spec', 'factories')
+]
+FactoryGirl.find_definitions
 
 def app
   DoabitBlog::App.tap { |app|  }
