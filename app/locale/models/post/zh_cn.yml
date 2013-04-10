@@ -8,5 +8,6 @@ zh_cn:
         content: 内容
         published: 发布？
         slug: 别名
+        tag_list: 标签
         created_at: 创建时间
         updated_at: 更新时间

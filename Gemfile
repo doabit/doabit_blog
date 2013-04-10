@@ -40,4 +40,6 @@ group :test do
    # gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit'
    gem 'database_cleaner'
    gem 'launchy', require: 'launchy'
+
+   gem 'faker'
 end

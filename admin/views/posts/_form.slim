@@ -22,7 +22,12 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
   div class='controls'
     = f.text_field :slug, :class => 'input-xlarge input-with-feedback'
     span class='help-inline' = error ? f.error_message_on(:slug, :class => 'text-error') : pat(:example)
-
+- error = @post.errors.include?(:tag_list)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :tag_list, :class => 'control-label'
+  div class='controls'
+    = f.text_field :tag_list, :class => 'input-xlarge input-with-feedback', id: 'post_tag_list', style: 'width: 100%', "data-tags" => Tag.all.map(&:name).join(",")
+    span class='help-inline' = error ? f.error_message_on(:tag_list, :class => 'text-error') : pat(:example)
 div class="form-actions"
   = f.submit pat(:save), :class => 'btn btn-primary'
   |&nbsp;

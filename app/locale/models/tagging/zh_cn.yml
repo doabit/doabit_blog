@@ -1,0 +1,10 @@
+zh_cn:
+  models:
+    tagging:
+      name: Tagging
+      attributes:
+        id: Id
+        tag_id: 标签
+        post_id: 文章
+        created_at: 创建时间
+        updated_at: 更新时间

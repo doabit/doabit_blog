@@ -1,0 +1,9 @@
+zh_cn:
+  models:
+    tag:
+      name: 标签
+      attributes:
+        id: Id
+        name: 名称
+        created_at: 创建时间
+        updated_at: 更新时间
