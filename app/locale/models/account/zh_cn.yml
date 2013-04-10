@@ -1,0 +1,15 @@
+zh_cn:
+  models:
+    account:
+      name: 帐号
+      attributes:
+        id: Id
+        name: 姓名
+        surname: Surname
+        email: 邮箱
+        crypted_password: 密码
+        role: 权限
+        uid: Uid
+        provider: Provider
+        created_at: 创建时间
+        updated_at: 更新时间

@@ -1,0 +1,12 @@
+zh_cn:
+  models:
+    post:
+      name: 文章
+      attributes:
+        id: Id
+        title: 标题
+        content: 内容
+        published: 发布？
+        slug: 别名
+        created_at: 创建时间
+        updated_at: 更新时间

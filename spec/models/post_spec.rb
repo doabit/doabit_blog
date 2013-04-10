@@ -13,7 +13,6 @@ describe Post do
       it { should validate_presence_of(attr.to_sym) }
       it { should validate_uniqueness_of(attr.to_sym) }
     end
-
   end
 
 end
