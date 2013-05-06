@@ -15,7 +15,7 @@ body{
 
 .article{
   /*width: 600px;*/
-  height: 400px;
+  /*min-height: 400px;*/
   background-color: #fff;
 /*  -webkit-box-shadow: 1px 2px 2px rgba(0,0,0,.4);
   -moz-box-shadow: 1px 2px 2px rgba(0,0,0,.4);
@@ -54,7 +54,6 @@ body{
   color: #3a3a3a;
   font-size: 20px;
 }
-
 
 .post-title a{
   color: #454545;

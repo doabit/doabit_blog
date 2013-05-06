@@ -124,6 +124,9 @@ GEM
       rack (>= 1.0)
     rake (10.0.4)
     rb-fsevent (0.9.3)
+    redcarpet (2.2.2)
+    rouge (0.3.4)
+      thor
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -177,6 +180,8 @@ DEPENDENCIES
   rack-test
   rake
   rb-fsevent
+  redcarpet
+  rouge
   rspec (~> 2.13.0)
   shoulda-matchers (~> 1.5.6)
   slim

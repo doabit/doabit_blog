@@ -5,5 +5,5 @@
         .q-month-year = get_year_manth(post.updated_at)
       .imags-list
       h1.post-title =link_to post.title, url(:posts, :show, post.id, post.slug)
-      .article-content = post.content
+      .article-content = markdown(post.content)
 

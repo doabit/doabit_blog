@@ -119,5 +119,23 @@
     $("#post_tag_list").select2({
                       tags: tag_list,
                       tokenSeparators: [","]});
+
+    // pagedown
+
+     // var converter1 = Markdown.getSanitizingConverter();
+     var converter = new Markdown.Converter();
+
+     Markdown.Extra.init(converter);
+      // converter1.hooks.chain("preBlockGamut", function (text, rbg) {
+      //     return text.replace(/^ {0,3}""" *\n((?:.*?\n)+?) {0,3}""" *$/gm, function (whole, inner) {
+      //         return "<blockquote>" + rbg(inner) + "</blockquote>\n";
+      //     });
+      // });
+
+      var editor1 = new Markdown.Editor(converter);
+
+      editor1.run();
+
+
   });
 }(window.jQuery);

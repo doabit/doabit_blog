@@ -13,6 +13,10 @@ gem 'sqlite3'
 # Padrino Stable Gem
 gem 'padrino', '0.11.1'
 
+
+# markdown
+gem 'redcarpet'
+gem 'rouge'
 group :development do
   gem "awesome_print", require: "awesome_print"
 
