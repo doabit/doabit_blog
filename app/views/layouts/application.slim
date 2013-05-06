@@ -1,0 +1,17 @@
+doctype 5
+html
+  head
+    /[if lt IE 9]
+      script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
+    meta content='text/html; charset=utf-8' http-equiv='Content-Type'
+    meta name='viewport' content='width=device-width,initial-scale=1.0'
+    title = @title.present? ? "#{@title} | #{APP_CONFIG['site_title']}" : "#{APP_CONFIG['site_title']}"
+    = favicon_tag 'favicon.ico'
+    link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet'
+    = stylesheet_link_tag 'bootstrap/bootstrap.min', 'bootstrap/bootstrap-responsive.min', 'jquery.pnotify.default', "jquery.pnotify.default.icons", "/skins/#{APP_CONFIG['skin']}/stylesheets/application"
+    = javascript_include_tag 'jquery', 'jquery-ujs', 'bootstrap/bootstrap.min', 'jquery.pnotify.js', "/skins/#{APP_CONFIG['skin']}/javascripts/application"
+
+  body
+    .container-fluid
+      .row-fluid
+         ==yield

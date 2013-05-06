@@ -1,13 +1,13 @@
 FactoryGirl.define do
   factory :post do
-    title Faker::Lorem.words(10)
-    content  Faker::Lorem.words(50)
+    sequence(:title) {|n| "Title #{n}" }
+    sequence(:content) {|n| "#{'content' * 30} #{n}" }
     published false
-    slug Faker::Lorem.words(20)
+    sequence(:slug) {|n| "slug-#{n}" }
   end #post
 
   factory :tag do
-    name Faker::Lorem.words(1)
+    sequence(:name) {|n| "name #{n}" }
   end #tag
 
 end

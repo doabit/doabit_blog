@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 # Project requirements
@@ -24,7 +25,6 @@ group :development do
     gem 'terminal-notifier-guard'
     gem 'rb-fsevent', :require => false
   end
-
 end
 
 
@@ -41,5 +41,5 @@ group :test do
    gem 'database_cleaner'
    gem 'launchy', require: 'launchy'
 
-   gem 'faker'
+   gem 'ffaker'
 end
