@@ -1,3 +1,6 @@
 .article
+    .post_date
+      .q-day = get_day(@post.updated_at)
+      .q-month-year = get_year_manth(@post.updated_at)
     h1.post-title = @post.title
-    .article-content = markdown @post.content
+    .article-content = markdown(@post.content).html_safe

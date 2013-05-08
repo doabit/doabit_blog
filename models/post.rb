@@ -6,6 +6,10 @@ class Post < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  def to_param
+    [id, slug.parameterize].join('-')
+  end
+
    def self.tagged_with(name)
      Tag.find_by_name!(name).posts
    end

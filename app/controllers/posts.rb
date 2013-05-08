@@ -1,11 +1,11 @@
 DoabitBlog::App.controllers :posts do
 
-  get :index, map: '/(posts)' do
-    @posts = Post.all
+  get :index, map: '/posts' do
+    @posts = Post.order("created_at desc")
     render 'posts/index'
   end
 
-  get :show, map: "/posts/:id-:slug" do
+  get :show, map: "/posts/:id" do
     @post = Post.find(params[:id])
     render 'posts/show'
   end

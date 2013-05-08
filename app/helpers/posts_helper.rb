@@ -5,6 +5,7 @@ class HTML < Redcarpet::Render::HTML
 end
 
 module PostHelpers
+  include TruncateHtmlHelper
   def get_day(date)
     "#{date.day < 10 ? '0' << date.day.to_s : date.day}"
   end
@@ -15,7 +16,7 @@ module PostHelpers
    def markdown(text)
     markdown = Redcarpet::Markdown.new(HTML, :autolink => true, fenced_code_blocks: true,
       :space_after_headers => true)
-    markdown.render(text).html_safe
+    markdown.render(text)
   end
 
 end

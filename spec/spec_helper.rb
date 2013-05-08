@@ -9,6 +9,16 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
 Capybara.javascript_driver = :webkit
 Capybara.asset_host = "http://localhost:3000"
 
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:weibo] = OmniAuth::AuthHash.new({
+                                                            :provider => 'weibo',
+                                                            :uid => '1337',
+                                                            :info => {
+                                                                'nickname' => 'Test Name'
+                                                            }
+                                                        })
+
+
 RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include FactoryGirl::Syntax::Methods

@@ -17,6 +17,17 @@ gem 'padrino', '0.11.1'
 # markdown
 gem 'redcarpet'
 gem 'rouge'
+
+# View
+gem "truncate_html", github: 'doabit/truncate_html', branch: 'dev'
+gem "html_truncator", "~>0.2"
+
+
+# Omniauth
+gem 'omniauth'
+gem 'omniauth-weibo-oauth2', git: 'git://github.com/beenhero/omniauth-weibo-oauth2.git'
+gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
+
 group :development do
   gem "awesome_print", require: "awesome_print"
 

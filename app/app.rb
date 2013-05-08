@@ -5,11 +5,17 @@ module DoabitBlog
     register Padrino::Mailer
     register Padrino::Helpers
 
+    register OmniauthInitializer
+
     enable :sessions
 
     configure :development do
       use Rack::LiveReload
     end
+
+    register Padrino::Admin::AccessControl
+    set :session_id, "my_shared_session_id"
+
     ##
     # Caching support
     #
