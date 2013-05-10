@@ -36,6 +36,8 @@ class Account < ActiveRecord::Base
       account.provider = auth["provider"]
       account.uid      = auth["uid"]
       account.name     = auth[:info]["nickname"]
+      account.avatar   = auth[:info]["image"]
+      account.url      = auth[:info]["urls"][auth[:provider] == "github" ? "GitHub" : "Weibo"]
       # account.email    = auth["user_info"]["email"] if auth["user_info"] # we get this only from FB
       account.role     = "commenter"
     end

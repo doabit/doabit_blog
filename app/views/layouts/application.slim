@@ -13,15 +13,15 @@ html
 
   body
     .container-fluid
+      #flash= partial "layouts/flash"
       - if logged_in?
-        .span4 = current_account.name
+        .span4 =current_account.name
         = button_to '退出', url(:logout), :method => :delete, class:'span4' do
           = submit_tag '退出',class:'btn btn-link'
       - else
         .span4
-          | 登录
-          =link_to('Github', '/auth/github')
-          |  or
+          =link_to('Github登录', '/auth/github')
+          |  或
           =link_to('微博登录',  '/auth/weibo')
       .row-fluid
          ==yield

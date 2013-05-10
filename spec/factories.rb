@@ -10,4 +10,18 @@ FactoryGirl.define do
     sequence(:name) {|n| "name #{n}" }
   end #tag
 
+  factory :account do
+    name 'name'
+    email Faker::Internet.email
+    password 'password'
+    password_confirmation 'password'
+    role 'commenter'
+  end #post
+
+  factory :comment do
+    account
+    post
+    content Faker::LoremCN.paragraph
+  end
+
 end

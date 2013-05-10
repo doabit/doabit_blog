@@ -6,6 +6,9 @@ class Post < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  has_many :comments, :dependent => :destroy
+
+
   def to_param
     [id, slug.parameterize].join('-')
   end

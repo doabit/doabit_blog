@@ -24,4 +24,5 @@ describe "Post" do
       current_path.should == "/posts/#{@post.to_param}"
     end
   end
+
 end

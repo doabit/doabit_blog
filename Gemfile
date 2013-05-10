@@ -33,13 +33,6 @@ group :development do
 
   gem 'guard-livereload', "~>1.1.3"
   gem 'rack-livereload', "~>0.3.13"
-
-  gem 'guard-rspec', "~>2.5.2"
-
-  if RUBY_PLATFORM =~ /darwin/i
-    gem 'terminal-notifier-guard'
-    gem 'rb-fsevent', :require => false
-  end
 end
 
 
@@ -53,8 +46,16 @@ group :test do
    gem 'capybara', github: 'jnicklas/capybara'
    gem 'capybara-padrino', github: 'doabit/capybara-padrino'
    # gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit'
+   gem 'selenium-webdriver'
    gem 'database_cleaner'
    gem 'launchy', require: 'launchy'
 
    gem 'ffaker'
+
+   gem 'guard-rspec', "~>2.5.2"
+
+   if RUBY_PLATFORM =~ /darwin/i
+     gem 'terminal-notifier-guard'
+     gem 'rb-fsevent', :require => false
+   end
 end

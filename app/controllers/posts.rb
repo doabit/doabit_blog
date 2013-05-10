@@ -7,6 +7,7 @@ DoabitBlog::App.controllers :posts do
 
   get :show, map: "/posts/:id" do
     @post = Post.find(params[:id])
+    @comments = @post.comments
     render 'posts/show'
   end
 
