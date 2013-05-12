@@ -51,6 +51,9 @@ body{
   box-shadow: 0 0 4px rgba(0,0,0,.1);
 
 }
+.tag-lists span a{
+  color: #333;
+}
 
 
 .post_date{
@@ -110,7 +113,7 @@ body{
 }
 
 
-/**/
+/*comment*/
 
 .triangle-isosceles {
   position:relative;

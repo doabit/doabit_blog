@@ -20,17 +20,16 @@ html
             = button_to '退出', url(:logout), :method => :delete, class:'span9' do
                 = submit_tag '退出',class:'btn btn-link'
 
-
           - else
             span
               =link_to('Github登录', '/auth/github')
               | &nbsp; 或 &nbsp;
               =link_to('微博登录',  '/auth/weibo')
         .logo-block
-          .logo-cell.logo Doabit
-          a href="/" class="logo-cell nav-1" Blog
-          a href="/" class="logo-cell nav-2" Tags
-          a href="/" class="logo-cell nav-3" Archives
-          a href="/" class="logo-cell nav-4" About
+          =link_to 'Doabit', '/', class: 'logo-cell logo'
+          =link_to 'Blog', '/', class: 'logo-cell nav-1'
+          =link_to 'Tags', '/tags', class: 'logo-cell nav-2'
+          =link_to 'Archives', '/', class: 'logo-cell nav-3'
+          =link_to 'About', '/', class: 'logo-cell nav-4'
       .row-fluid
          ==yield

@@ -8,5 +8,5 @@
       .article-content=truncate_html(markdown(post.content), length:400, word_boundary: false)
       .article-footer
         .tag-lists
-          -post.tag_list.split(",").each do |tag|
-            span=tag
+          -post.tags.each do |tag|
+            span=link_to tag.name, url(:tags, :show, tag.name)

@@ -9,8 +9,8 @@ describe "Post" do
     it "list posts" do
       visit '/posts'
       page.should have_content @post.title
-      page.should have_content 'tag1'
-      page.should have_content 'tag2'
+      page.should have_link 'tag1'
+      page.should have_link 'tag2'
     end
   end
 
