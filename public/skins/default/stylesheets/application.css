@@ -5,9 +5,7 @@ body{
   max-width: 600px;
   margin: 0 auto;
 }
-.row-fluid{
-  margin-top: 150px;
-}
+
 #main{
   /*margin: 0 auto;*/
   /*max-width: 600px;*/
@@ -87,4 +85,135 @@ body{
 
 .post-title a:hover{
   color: #5c789d;
+}
+
+
+/*comments*/
+#comments{
+}
+
+#comments dl{ overflow: hidden; font-size: 12px;}
+#comments dl dt{
+  float: left;
+  width: 70px;
+}
+#comments dl dt img{
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+}
+#comments dl dd{
+  float: left;
+  width: 490px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+
+/**/
+
+.triangle-isosceles {
+  position:relative;
+  padding:0 15px;
+  color:#000;
+  background:#fff;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+.triangle-isosceles.left {
+  background:#fff;
+}
+.triangle-isosceles:after {
+  content:"";
+  position:absolute;
+  bottom:-15px;
+  left:50px;
+  border-width:15px 15px 0;
+  border-style:solid;
+  border-color:#fff transparent;
+
+  display:block;
+  width:0;
+}
+
+
+.triangle-isosceles.left:after {
+  top: 16px;
+  left: -20px;
+  bottom: auto;
+  border-width: 10px 20px 10px 0;
+  border-color: transparent #fff;
+}
+
+.comment-title{
+  padding: 5px 0;
+}
+.comment-title a{
+  margin-right: 10px;
+}
+
+/*comment form*/
+#comment_content{
+  width: 586px;
+  height: 100px;
+}
+.comment_btn{
+  float: right;
+}
+
+
+/*login block*/
+.login-block{
+  height: 30px;
+  line-height: 30px;
+  opacity: .8;
+  /*text-align: right;*/
+}
+.login-block form{
+  text-align: right;
+}
+
+/*logo*/
+.logo-block{
+  position: relative;
+  height: 200px;
+  text-align: center;
+}
+
+.logo-block a{
+  color: #343131;
+}
+
+.logo-block .logo-cell{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 30px;
+  font-size: 10px;
+  background: #eef4ee;
+}
+
+.logo-cell.logo {
+  top: 30px;
+  width: 124px;
+  height: 124px;
+  line-height: 124px;
+  border-radius: 62px;
+  left: 220px;
+  background: url("../images/logo.png") center center no-repeat;
+  text-indent: -9999em;
+}
+
+.logo-cell.nav-1, .logo-cell.nav-3{
+  left: 160px;
+}
+
+.logo-cell.nav-3, .logo-cell.nav-4{
+  top: 120px;
+}
+
+.logo-cell.nav-2, .logo-cell.nav-4{
+  left: 340px;
 }

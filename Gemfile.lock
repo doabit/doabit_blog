@@ -162,6 +162,8 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    puma (2.0.1)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-livereload (0.3.13)
       rack
@@ -234,6 +236,7 @@ DEPENDENCIES
   omniauth-github!
   omniauth-weibo-oauth2!
   padrino (= 0.11.1)
+  puma
   rack-livereload (~> 0.3.13)
   rack-test
   rake

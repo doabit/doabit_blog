@@ -28,6 +28,8 @@ gem 'omniauth'
 gem 'omniauth-weibo-oauth2', git: 'git://github.com/beenhero/omniauth-weibo-oauth2.git'
 gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
 
+gem 'puma'
+
 group :development do
   gem "awesome_print", require: "awesome_print"
 

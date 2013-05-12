@@ -1,7 +1,8 @@
 dl
   dt
     img src="#{comment.account.avatar}" alt="#{comment.account.name}"
-  dd
-    p
+  dd.triangle-isosceles.left
+    p.comment-title
       a href="#{comment.account.url}" =comment.account.name
-    p = comment.content
+      abbr.timeago title="#{comment.created_at}" =comment.created_at
+    p.comment-content = comment.content

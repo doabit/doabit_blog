@@ -9,19 +9,28 @@ html
     = favicon_tag 'favicon.ico'
     link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet'
     = stylesheet_link_tag 'bootstrap/bootstrap.min', 'bootstrap/bootstrap-responsive.min', 'jquery.pnotify.default', "jquery.pnotify.default.icons", "code", "/skins/#{APP_CONFIG['skin']}/stylesheets/application"
-    = javascript_include_tag 'jquery', 'jquery-ujs', 'bootstrap/bootstrap.min', 'jquery.pnotify.js', "/skins/#{APP_CONFIG['skin']}/javascripts/application"
+    = javascript_include_tag 'jquery', 'jquery-ujs', 'bootstrap/bootstrap.min', 'jquery.pnotify', 'timeago', 'jquery.timeago.zh-CN', "/skins/#{APP_CONFIG['skin']}/javascripts/application"
 
   body
     .container-fluid
-      #flash= partial "layouts/flash"
-      - if logged_in?
-        .span4 =current_account.name
-        = button_to '退出', url(:logout), :method => :delete, class:'span4' do
-          = submit_tag '退出',class:'btn btn-link'
-      - else
-        .span4
-          =link_to('Github登录', '/auth/github')
-          |  或
-          =link_to('微博登录',  '/auth/weibo')
+      .row-fluid
+        .login-block
+          - if logged_in?
+            .span3 =current_account.name
+            = button_to '退出', url(:logout), :method => :delete, class:'span9' do
+                = submit_tag '退出',class:'btn btn-link'
+
+
+          - else
+            span
+              =link_to('Github登录', '/auth/github')
+              | &nbsp; 或 &nbsp;
+              =link_to('微博登录',  '/auth/weibo')
+        .logo-block
+          .logo-cell.logo Doabit
+          a href="/" class="logo-cell nav-1" Blog
+          a href="/" class="logo-cell nav-2" Tags
+          a href="/" class="logo-cell nav-3" Archives
+          a href="/" class="logo-cell nav-4" About
       .row-fluid
          ==yield

@@ -1,6 +1,4 @@
-<%
-  if logged_in?  && @comment.save
-%>
+<% if logged_in?  && @comment.save %>
   $.pnotify({
          text: '评论成功.',
          history: false,
@@ -9,11 +7,15 @@
      });
    $(document).scrollTop($('div#comments').offset().top);
    $('div#comments').prepend('<%= js_escape_html(partial("posts/comment", :object => @comment)).html_safe %>');
-<%else%>
+   jQuery("abbr.timeago").timeago();
+   jQuery("#comment_content").val('');
+
+<% else %>
+
 $.pnotify({
-       text: '请登录后评论.',
+       text: "<%= logged_in? ? '评论失败.' : '请登录后评论.' %>",
        history: false,
        type: 'error',
        delay: '2000'
    });
-<%end%>
+<% end %>

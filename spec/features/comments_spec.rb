@@ -13,6 +13,7 @@ describe "Comments" do
 
     page.should have_link 'weibo_uname', href: 'http://www.weibo.com/weibo_uname'
     page.should have_css('img[alt="weibo_uname"]')
+    find_field("comment_content").value.should == ''
   end
 
   it "未登录添加评论", js: true do

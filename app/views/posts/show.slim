@@ -5,10 +5,10 @@
     h1.post-title = @post.title
     .article-content = markdown(@post.content).html_safe
 
-#comments.article
+#comments
   = partial 'posts/comment', :collection => @comments.reverse
 
 #comment-form
   =form_for Comment.new, url(:comments, :create, :post_id => @post.id), remote: true, id: 'new_comment' do |f|
-    = f.text_area :content, :class => 'comment'
-    = f.submit '发表评论', :class => 'comment_btn'
+    = f.text_area :content, class: 'comment', placeholder: "#{'评论需要用Github或者微博帐号登录' unless logged_in? }"
+    = f.submit '发表评论', class: 'comment_btn btn'
