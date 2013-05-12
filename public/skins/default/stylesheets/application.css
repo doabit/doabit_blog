@@ -1,3 +1,6 @@
+
+@import url(http://fonts.googleapis.com/css?family=Lobster+Two);
+
 body{
   background: #f8efd0 url(../images/bg.png) center top repeat-x fixed;
 }
@@ -12,18 +15,12 @@ body{
 }
 
 .article{
-  /*width: 600px;*/
-  /*min-height: 400px;*/
   background-color: #fff;
-/*  -webkit-box-shadow: 1px 2px 2px rgba(0,0,0,.4);
-  -moz-box-shadow: 1px 2px 2px rgba(0,0,0,.4);
-  box-shadow: 1px 2px 2px rgba(0,0,0,.4);*/
   margin-bottom: 35px;
   opacity: .9;
   position: relative;
 
   border: 1px solid #dedede;
-  /*border-top: 2px solid #1e375a;*/
   padding: 0 20px;
 }
 
@@ -182,6 +179,7 @@ body{
   position: relative;
   height: 200px;
   text-align: center;
+  font-family: 'Lobster Two', cursive;
 }
 
 .logo-block a{
@@ -190,12 +188,12 @@ body{
 
 .logo-block .logo-cell{
   position: absolute;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 30px;
-  font-size: 10px;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 35px;
   background: #eef4ee;
+  opacity: .8;
 }
 
 .logo-cell.logo {
@@ -204,9 +202,16 @@ body{
   height: 124px;
   line-height: 124px;
   border-radius: 62px;
-  left: 220px;
+  left: 225px;
   background: url("../images/logo.png") center center no-repeat;
-  text-indent: -9999em;
+
+  font-size: 35px;
+  color: white;
+}
+
+.logo-block a:hover{
+  text-decoration: none;
+  opacity: 1;
 }
 
 .logo-cell.nav-1, .logo-cell.nav-3{
