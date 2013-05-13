@@ -12,7 +12,7 @@ gem 'sqlite3'
 
 # Padrino Stable Gem
 gem 'padrino', '0.11.1'
-
+gem 'tilt', '1.3.7'
 
 # markdown
 gem 'redcarpet'
