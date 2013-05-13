@@ -202,7 +202,7 @@ body{
   height: 124px;
   line-height: 124px;
   border-radius: 62px;
-  left: 225px;
+  left: 40%;
   background: url("../images/logo.png") center center no-repeat;
 
   font-size: 35px;
@@ -215,7 +215,7 @@ body{
 }
 
 .logo-cell.nav-1, .logo-cell.nav-3{
-  left: 160px;
+  left: 25%;
 }
 
 .logo-cell.nav-3, .logo-cell.nav-4{
@@ -223,5 +223,5 @@ body{
 }
 
 .logo-cell.nav-2, .logo-cell.nav-4{
-  left: 340px;
+  right: 25%;
 }

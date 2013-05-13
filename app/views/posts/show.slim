@@ -4,6 +4,10 @@
       .q-month-year = get_year_manth(@post.updated_at)
     h1.post-title = @post.title
     .article-content = markdown(@post.content).html_safe
+    .article-footer
+      .tag-lists
+        -@post.tags.each do |tag|
+          span=link_to tag.name, url(:tags, :show, tag.name)
 
 #comments
   = partial 'posts/comment', :collection => @comments.reverse
