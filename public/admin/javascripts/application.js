@@ -137,5 +137,8 @@
       editor1.run();
 
 
+        $('#datetimepicker1').datetimepicker();
+
+
   });
 }(window.jQuery);

@@ -11,6 +11,16 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
   div class='controls'
     = f.check_box :published, :class => 'input-xlarge input-with-feedback'
     span class='help-inline' = error ? f.error_message_on(:published, :class => 'text-error') : pat(:example)
+
+- error = @post.errors.include?(:published_at_string)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :published_at_string, :class => 'control-label'
+  div class='controls input-append date' id="datetimepicker1"
+    = f.text_field :published_at_string, :class => 'input-xlarge input-with-feedback', "data-format"=>"yyyy-MM-dd hh:mm:ss"
+    span.add-on
+      i data-date-icon="icon-calendar" data-time-icon="icon-time"
+    span class='help-inline' = error ? f.error_message_on(:published_at_string, :class => 'text-error') : pat(:example)
+
 - error = @post.errors.include?(:slug)
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :slug, :class => 'control-label'

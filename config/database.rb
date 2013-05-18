@@ -21,5 +21,9 @@ ActiveSupport.use_standard_json_time_format = true
 # if you're including raw JSON in an HTML page.
 ActiveSupport.escape_html_entities_in_json = false
 
+# Set timezone to local
+ActiveRecord::Base.default_timezone = :local
+ActiveRecord::Base.time_zone_aware_attributes = false
+
 # Now we can establish connection with our db.
 ActiveRecord::Base.establish_connection YAML::load(File.open(File.expand_path("#{PADRINO_ROOT}/config", __FILE__) + '/database.yml'))[PADRINO_ENV]

@@ -7,7 +7,7 @@ describe Post do
 
     it { should be_valid }
 
-    its(:published) { should == false }
+    its(:published) { should == true }
 
     %w(title content slug).each do |attr|
       it { should validate_presence_of(attr.to_sym) }

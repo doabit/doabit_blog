@@ -7,7 +7,7 @@ DoabitBlog::App.controllers :tags do
 
   get :show, map: "/tags/:name" do
     @tag = Tag.find_by_name(params[:name])
-    @posts = @tag.posts.order("created_at desc")
+    @posts = @tag.posts.published.order("published_at desc")
     render 'posts/index'
   end
 

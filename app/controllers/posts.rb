@@ -1,7 +1,7 @@
 DoabitBlog::App.controllers :posts do
 
   get :index, map: '/posts' do
-    @posts = Post.order("created_at desc")
+    @posts = Post.published.order("created_at desc")
     render 'posts/index'
   end
 
@@ -12,7 +12,7 @@ DoabitBlog::App.controllers :posts do
   end
 
   get :archives, map: '/archives' do
-    @posts = Post.order('created_at desc').group_by { |t| t.created_at.beginning_of_month }
+    @posts = Post.published.order('published_at desc').group_by { |t| t.published_at.beginning_of_month }
     render 'posts/archives'
   end
 

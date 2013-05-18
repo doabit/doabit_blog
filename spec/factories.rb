@@ -2,7 +2,8 @@ FactoryGirl.define do
   factory :post do
     sequence(:title) {|n| "Title #{n}" }
     sequence(:content) {|n| "#{'content' * 30} #{n}" }
-    published false
+    published true
+    published_at Time.now
     sequence(:slug) {|n| "slug-#{n}" }
   end #post
 

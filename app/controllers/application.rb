@@ -1,7 +1,7 @@
 DoabitBlog::App.controllers  do
 
   get :index , :map => '/' do
-    @posts = Post.order("created_at desc")
+    @posts = Post.published.order("created_at desc")
     render 'posts/index'
   end
 

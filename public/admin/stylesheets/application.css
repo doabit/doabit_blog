@@ -1,4 +1,23 @@
 /* -- Begin Layout -- */
+
+#post_published_at_string{
+  width: 200px;
+}
+.add-on {
+  display: inline-block;
+  width: auto;
+  height: 3-px;
+  min-width: 16px;
+  padding: 7px 5px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 34px;
+  text-align: center;
+  text-shadow: 0 1px 0 #ffffff;
+  background-color: #eeeeee;
+  border: 1px solid #ccc;
+}
+
 html, body {
   height: 100%;
 }
@@ -104,7 +123,7 @@ footer p {
 /*     padding: 10px 20px !important; */
 /*   } */
 /*   .login-controls { */
-/*     margin-left: 0px; */ 
+/*     margin-left: 0px; */
 /*   } */
 /* } */
 @media (-webkit-device-pixel-ratio: 2) and (orientation:portrait) {
@@ -119,7 +138,7 @@ footer p {
     padding: 10px 20px !important;
   }
   .login-controls {
-    margin-left: 0px; 
+    margin-left: 0px;
   }
 }
 /* -- End Login -- */
@@ -130,7 +149,7 @@ footer p {
   font-size: 1.5em;
   width: 500px;
   margin: 100px auto 0;
-  text-transform: lowercase; 
+  text-transform: lowercase;
 }
 .custom-error-body {
   border-top: 1px solid #e5e5e5;
