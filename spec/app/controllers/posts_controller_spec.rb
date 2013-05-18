@@ -1,11 +1,23 @@
 require 'spec_helper'
 
 describe "PostsController" do
-  before do
-    get "/"
+
+  describe "GET index" do
+    it "renders the index" do
+      get '/'
+      last_response.should be_ok
+    end
   end
 
-  # it "returns hello world" do
-  #   last_response.body.should == "Hello World"
-  # end
+  describe "Get show" do
+    before(:each) do
+      @post = create(:post)
+    end
+
+    it "renders the show" do
+      get "/posts/#{@post.to_param}"
+      last_response.should be_ok
+    end
+  end
+
 end

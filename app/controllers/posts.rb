@@ -11,4 +11,9 @@ DoabitBlog::App.controllers :posts do
     render 'posts/show'
   end
 
+  get :archives, map: '/archives' do
+    @posts = Post.order('created_at desc').group_by { |t| t.created_at.beginning_of_month }
+    render 'posts/archives'
+  end
+
 end

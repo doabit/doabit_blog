@@ -1,0 +1,7 @@
+.archives.article
+  / h2 Blog Archives
+  - @posts.sort.reverse.each do |month, posts|
+    h3= I18n.l(month, format: :year_month)
+    ul
+      - for post in posts
+        li= link_to post.title, url(:posts, :show, post.to_param)

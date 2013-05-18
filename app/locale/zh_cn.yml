@@ -1,0 +1,4 @@
+zh_cn:
+  time:
+    formats:
+      year_month: "%Y 年 %m 月"

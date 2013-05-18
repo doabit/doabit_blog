@@ -25,4 +25,12 @@ describe "Post" do
     end
   end
 
+  context "post archives" do
+    it "list posts group by year-month" do
+      visit '/archives'
+      page.should have_content I18n.l(@post.created_at, format: :year_month)
+      page.should have_content @post.title
+    end
+  end
+
 end
