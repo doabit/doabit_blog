@@ -137,7 +137,11 @@
       editor1.run();
 
 
-        $('#datetimepicker1').datetimepicker();
+        $('#post_published_at_string').datetimepicker({
+          autoclose: true,
+          todayBtn: true,
+          pickerPosition: "bottom-left"
+        });
 
 
   });

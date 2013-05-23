@@ -5,10 +5,10 @@ DoabitBlog::App.controllers  do
     render 'posts/index'
   end
 
-  get :profile do
-    content_type :text
-    current_account.to_yaml
-  end
+  # get :profile do
+  #   content_type :text
+  #   current_account.to_yaml
+  # end
 
   delete :logout, :map => '/logout' do
     set_current_account(nil)
