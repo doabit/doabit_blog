@@ -60,10 +60,9 @@ group :test do
 
    gem 'guard-rspec', "~>2.5.2"
 
-   if RUBY_PLATFORM =~ /darwin/i
-      group :darwin do
-        gem 'terminal-notifier-guard', :require => false
-        gem 'rb-fsevent', :require => false
-      end
-   end
+    # group :darwin do
+    #   gem 'terminal-notifier-guard', :require => false
+    #   gem 'rb-fsevent', :require => false
+    # end
+
 end
