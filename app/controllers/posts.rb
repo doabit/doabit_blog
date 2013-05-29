@@ -16,4 +16,9 @@ DoabitBlog::App.controllers :posts do
     render 'posts/archives'
   end
 
+  get :about, map: '/about' do
+    @post = Post.where(slug: 'about').first
+    render 'posts/about'
+  end
+
 end

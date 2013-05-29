@@ -38,4 +38,12 @@ describe "Post" do
     end
   end
 
+  context "pages" do
+    let!(:about) { create(:post, slug: 'about', published: false) }
+    it "about page" do
+      visit '/about'
+      page.should have_content about.content
+    end
+  end
+
 end
