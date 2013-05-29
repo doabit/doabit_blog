@@ -2,6 +2,7 @@ DoabitBlog::App.controllers  do
 
   get :index , :map => '/' do
     @posts = Post.published.order("created_at desc")
+    @description = APP_CONFIG['site_description']
     render 'posts/index'
   end
 

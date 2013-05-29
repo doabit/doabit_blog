@@ -5,7 +5,10 @@ html
       script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
     meta content='text/html; charset=utf-8' http-equiv='Content-Type'
     meta name='viewport' content='width=device-width,initial-scale=1.0'
-    title = @title.present? ? "#{@title} | #{APP_CONFIG['site_title']}" : "#{APP_CONFIG['site_title']}"
+    title = @title.present? ? "#{@title} - #{APP_CONFIG['site_title']}" : "#{APP_CONFIG['site_title']}"
+    - if @description
+      meta name='description' content="#{@description}"
+    meta name='author' content='doabit'
     = favicon_tag 'favicon.ico'
     link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet'
     = stylesheet_link_tag 'bootstrap/bootstrap.min', 'bootstrap/bootstrap-responsive.min', 'jquery.pnotify.default', "jquery.pnotify.default.icons", "code", "/skins/#{APP_CONFIG['skin']}/stylesheets/application"
