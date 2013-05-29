@@ -60,9 +60,9 @@ group :test do
 
    gem 'guard-rspec', "~>2.5.2"
 
-    # group :darwin do
-    #   gem 'terminal-notifier-guard', :require => false
-    #   gem 'rb-fsevent', :require => false
-    # end
+  # group :darwin do
+  #   gem 'terminal-notifier-guard', :require => false
+  #   gem 'rb-fsevent', :require => false
+  # end
 
 end

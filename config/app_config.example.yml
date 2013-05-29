@@ -1,4 +1,5 @@
 development: &default
+  skin: 'default'
   site_title: '多做一点Blog'
   site_keywords: 'ruby on rails, padrino'
   site_description: 'Doabit的BLog,记录些东西而已。'

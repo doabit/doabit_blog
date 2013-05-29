@@ -1,11 +1,12 @@
+require "bundler/capistrano"
 require 'puma/capistrano'
 
-server "ip", :web, :app, :db, primary: true
+server "doabit.com", :web, :app, :db, primary: true
 
 set :application, "doabit.com"
 set :user, "user"
 set :group, "group"
-set :deploy_to, "/www/apps/#{application}"
+set :deploy_to, "/home/user/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
@@ -13,17 +14,25 @@ set :scm, "git"
 set :repository, "git://github.com/doabit/doabit_blog.git"
 set :branch, "master"
 
-default_run_options[:pty] = true
-ssh_options[:forward_agent] = true
+set :shared_children, shared_children + %w{public/uploads}
+
+require "capistrano-rbenv"
+set :rbenv_ruby_version, "2.0.0-p195"
 
 after "deploy:restart", "deploy:cleanup" # keep only the last 5 releases
 
 namespace :deploy do
+
+  task :migrate do
+    run "cd #{current_path}; PADRINO_ENV=production bundle exec rake ar:migrate"
+  end
+
   task :setup_config, roles: :app do
-    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}.conf"
     run "mkdir -p #{shared_path}/config"
     put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
     put File.read("config/app_config.example.yml"), "#{shared_path}/config/app_config.yml"
+    put File.read("config/nginx.example.conf"), "#{shared_path}/config/nginx.conf"
+    sudo "ln -nfs #{shared_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}.conf"
     puts "Now edit the config files in #{shared_path}."
   end
   after "deploy:setup", "deploy:setup_config"
