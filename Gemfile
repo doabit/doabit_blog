@@ -36,6 +36,8 @@ group :development do
 
   gem 'guard-livereload', "~>1.1.3"
   gem 'rack-livereload', "~>0.3.13"
+
+  gem 'capistrano'
 end
 
 
