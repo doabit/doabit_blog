@@ -11,7 +11,7 @@ gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'sqlite3'
 
 # Padrino Stable Gem
-gem 'padrino', '0.11.1'
+gem 'padrino', '0.11.2'
 gem 'tilt', '1.3.7'
 
 # markdown
