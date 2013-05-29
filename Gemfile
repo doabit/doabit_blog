@@ -38,6 +38,7 @@ group :development do
   gem 'rack-livereload', "~>0.3.13"
 
   gem 'capistrano'
+  gem 'capistrano-rbenv', github: 'yyuu/capistrano-rbenv'
 end
 
 
@@ -60,7 +61,9 @@ group :test do
    gem 'guard-rspec', "~>2.5.2"
 
    if RUBY_PLATFORM =~ /darwin/i
-     gem 'terminal-notifier-guard'
-     gem 'rb-fsevent', :require => false
+      group :darwin do
+        gem 'terminal-notifier-guard', :require => false
+        gem 'rb-fsevent', :require => false
+      end
    end
 end
