@@ -123,15 +123,9 @@
     }
 
     // pagedown
-
-     // var converter1 = Markdown.getSanitizingConverter();
-     // var converter = new Markdown.Converter();
-     // Markdown.Extra.init(converter);
-     // var editor1 = new Markdown.Editor(converter);
-
-     // editor1.run();
      if($("#wmd-input").length > 0){
         var converter = new Markdown.Converter();
+        Markdown.Extra.init(converter);
         var help = function () { window.open('http://stackoverflow.com/editing-help'); }
         var editor = new Markdown.Editor(converter, null, { handler: help });
 
