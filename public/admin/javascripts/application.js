@@ -115,26 +115,71 @@
     $('.has-error :input').first().focus();
 
     // Post tags
-    var tag_list = $("#post_tag_list").attr("data-tags").split(",");
-    $("#post_tag_list").select2({
-                      tags: tag_list,
-                      tokenSeparators: [","]});
+    if($("#post_tag_list").attr("data-tags") != undefined){
+      var tag_list = $("#post_tag_list").attr("data-tags").split(",");
+      $("#post_tag_list").select2({
+                        tags: tag_list,
+                        tokenSeparators: [","]});
+    }
 
     // pagedown
 
      // var converter1 = Markdown.getSanitizingConverter();
-     var converter = new Markdown.Converter();
+     // var converter = new Markdown.Converter();
+     // Markdown.Extra.init(converter);
+     // var editor1 = new Markdown.Editor(converter);
 
-     Markdown.Extra.init(converter);
-      // converter1.hooks.chain("preBlockGamut", function (text, rbg) {
-      //     return text.replace(/^ {0,3}""" *\n((?:.*?\n)+?) {0,3}""" *$/gm, function (whole, inner) {
-      //         return "<blockquote>" + rbg(inner) + "</blockquote>\n";
-      //     });
-      // });
+     // editor1.run();
+     if($("#wmd-input").length > 0){
+        var converter = new Markdown.Converter();
+        var help = function () { window.open('http://stackoverflow.com/editing-help'); }
+        var editor = new Markdown.Editor(converter, null, { handler: help });
 
-      var editor1 = new Markdown.Editor(converter);
+        var $dialog = $('#insertImageDialog').dialog({
+            autoOpen: false,
+            closeOnEscape: false,
+            open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); }
+        });
 
-      editor1.run();
+        var $url = $('input[type=text]', $dialog);
+
+        editor.hooks.set('insertImageDialog', function(callback) {
+
+            $('#dialog-images img').click(function(){
+              $url.val($(this).attr('src'));
+            });
+
+            // dialog functions
+            var dialogInsertClick = function() {
+                callback($url.val().length > 0 ? $url.val() : null);
+                dialogClose();
+            };
+
+            var dialogCancelClick = function() {
+                dialogClose();
+                callback(null);
+            };
+
+            var dialogClose = function() {
+                // clean up inputs
+                $url.val('');
+                $dialog.dialog('close');
+            };
+
+            // set up dialog button handlers
+            $dialog.dialog( 'option', 'buttons', {
+                '确定': dialogInsertClick,
+                '取消': dialogCancelClick
+            });
+
+            // open the dialog
+            $dialog.dialog('open');
+
+            return true; // tell the editor that we'll take care of getting the image url
+        });
+
+        editor.run();
+     }
 
 
         $('#post_published_at_string').datetimepicker({

@@ -47,3 +47,10 @@ div class="form-actions"
   = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
   |&nbsp;
   = link_to pat(:cancel), url(:posts, :index), :class => 'btn'
+
+#insertImageDialog title="插入图片"
+  p
+    input placeholder="Enter url e.g. http://doabit.com/image.jpg" type="text"
+  p#dialog-images
+    -Upload.order("created_at desc").limit(20).each do |file|
+      =image_tag file.file_url
