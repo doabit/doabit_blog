@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lobster+Two);
 
 body{
-  background: #f8efd0 url(../images/bg.png) center top repeat-x fixed;
+  background: #f8efd0 url(../images/bg.jpg) center top repeat-x fixed;
 }
 .container-fluid{
   max-width: 600px;
