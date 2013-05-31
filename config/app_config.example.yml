@@ -1,5 +1,6 @@
 development: &default
   skin: 'default'
+  site_domain: 'http://doabit.com'
   site_title: '多做一点Blog'
   site_description: 'Doabit的BLog,记录些东西而已。'
   WEIBO_KEY: ''

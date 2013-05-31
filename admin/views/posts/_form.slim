@@ -48,9 +48,9 @@ div class="form-actions"
   |&nbsp;
   = link_to pat(:cancel), url(:posts, :index), :class => 'btn'
 
-#insertImageDialog title="插入图片"
+#insertImageDialog title="插入图片" style='display:none'
   p
     input placeholder="Enter url e.g. http://doabit.com/image.jpg" type="text"
   p#dialog-images
     -Upload.order("created_at desc").limit(20).each do |file|
-      =image_tag file.file_url
+      =image_tag "#{APP_CONFIG['site_domain']}#{file.file_url}"

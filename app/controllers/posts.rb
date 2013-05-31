@@ -1,7 +1,7 @@
 # encoding: UTF-8
 DoabitBlog::App.controllers :posts do
 
-  get :index, map: '/posts' do
+  get :index, map: '/posts', :provides => [:html, :rss, :atom] do
     @posts = Post.published.order("created_at desc")
     render 'posts/index'
   end

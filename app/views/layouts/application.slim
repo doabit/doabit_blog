@@ -13,14 +13,16 @@ html
     link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet'
     = stylesheet_link_tag 'bootstrap/bootstrap.min', 'bootstrap/bootstrap-responsive.min', 'jquery.pnotify.default', "jquery.pnotify.default.icons", "code", "/skins/#{APP_CONFIG['skin']}/stylesheets/application"
     = javascript_include_tag 'jquery', 'jquery-ujs', 'bootstrap/bootstrap.min', 'jquery.pnotify', 'timeago', 'jquery.timeago.zh-CN', "/skins/#{APP_CONFIG['skin']}/javascripts/application"
+    = feed_tag(:rss, url(:posts, :index, :format => :rss),:title => "RSS")
+    = feed_tag(:atom, url(:posts, :index, :format => :atom),:title => "ATOM")
 
   body
     .container-fluid
       .row-fluid
         .login-block
           - if logged_in?
-            .span3 =current_account.name
-            = button_to '退出', url(:logout), :method => :delete, class:'span9' do
+            span=current_account.name
+            = button_to '退出', url(:logout), :method => :delete do
                 = submit_tag '退出',class:'btn btn-link'
 
           - else
@@ -28,9 +30,13 @@ html
               =link_to('Github登录', '/auth/github')
               | &nbsp; 或 &nbsp;
               =link_to('微博登录',  '/auth/weibo')
+          span.rss
+            =link_to 'RSS', url(:posts, :index, :format => :rss)
+            =link_to 'ATOM', url(:posts, :index, :format => :atom)
+
         .logo-block
           =link_to 'Doabit', '/', class: 'logo-cell logo'
-          =link_to 'Blog', '/', class: 'logo-cell nav-1'
+          =link_to 'Blog', '/posts', class: 'logo-cell nav-1'
           =link_to 'Tags', '/tags', class: 'logo-cell nav-2'
           =link_to 'Archives', '/archives', class: 'logo-cell nav-3'
           =link_to 'About', '/about', class: 'logo-cell nav-4'

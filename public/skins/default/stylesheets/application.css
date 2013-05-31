@@ -171,7 +171,8 @@ body{
   /*text-align: right;*/
 }
 .login-block form{
-  text-align: right;
+  margin: 0;
+  display: inline;
 }
 
 /*logo*/
@@ -224,4 +225,13 @@ body{
 
 .logo-cell.nav-2, .logo-cell.nav-4{
   right: 25%;
+}
+
+/*rss*/
+.rss{
+  text-align: right;
+  float: right;
+}
+.rss a{
+  margin: 0 5px;
 }
