@@ -4,12 +4,12 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
   div class='controls'
     = f.text_field :name, :class => 'input-xlarge input-with-feedback', :autofocus => true
     span class='help-inline' = error ? f.error_message_on(:name, :class => 'text-error') : pat(:example)
-- error = @account.errors.include?(:surname)
-fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :surname, :class => 'control-label'
-  div class='controls'
-    = f.text_field :surname, :class => 'input-xlarge input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:surname, :class => 'text-error') : pat(:example)
+/ - error = @account.errors.include?(:surname)
+/ fieldset class='control-group#{error ? ' has-error' : ''}'
+/   = f.label :surname, :class => 'control-label'
+/   div class='controls'
+/     = f.text_field :surname, :class => 'input-xlarge input-with-feedback'
+/     span class='help-inline' = error ? f.error_message_on(:surname, :class => 'text-error') : pat(:example)
 - error = @account.errors.include?(:email)
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :email, :class => 'control-label'
@@ -34,7 +34,18 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
   div class='controls'
     = f.text_field :role, :class => 'input-xlarge input-with-feedback'
     span class='help-inline' = error ? f.error_message_on(:role, :class => 'text-error') : pat(:example)
-
+- error = @account.errors.include?(:avatar)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :avatar, :class => 'control-label'
+  div class='controls'
+    = f.text_field :avatar, :class => 'input-xlarge input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:avatar, :class => 'text-error') : pat(:example)
+- error = @account.errors.include?(:url)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :url, :class => 'control-label'
+  div class='controls'
+    = f.text_field :url, :class => 'input-xlarge input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:url, :class => 'text-error') : pat(:example)
 div class="form-actions"
   = f.submit pat(:save), :class => 'btn btn-primary'
   |&nbsp;

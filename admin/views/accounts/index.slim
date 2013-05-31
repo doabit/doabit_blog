@@ -27,8 +27,10 @@ div class="tabs-content"
                       div class='btn btn-small cancel' = pat(:cancel)
         th class='header' = :id
         th class='header' = :name
-        th class='header' = :surname
+        th class='header' = :avatar
         th class='header' = :email
+        th class='header' = :role
+        th class='header' = :provider
         th class='header list-row-action-header'
 
     tbody
@@ -37,8 +39,10 @@ div class="tabs-content"
           td class='list-column list-selectable' = check_box_tag 'account_ids[]', :value => account.id, :class => 'list-selectable-checkbox'
           td class='list-column' = account.id
           td class='list-column' = account.name
-          td class='list-column' = account.surname
+          td class='list-column' = image_tag account.avatar, style: "width: 30px"
           td class='list-column' = account.email
+          td class='list-column' = account.role
+          td class='list-column' = account.provider
           td class='list-column list-row-action'
             div class='list-row-action-wrapper'
               = link_to tag_icon(:edit), :href => url(:accounts, :edit, :id => account.id), :rel => :tooltip, :title => "#{pat(:edit)} account", :class => 'list-row-action-wrapper-link'
