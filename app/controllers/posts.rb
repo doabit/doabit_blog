@@ -1,7 +1,7 @@
 # encoding: UTF-8
 DoabitBlog::App.controllers :posts do
 
-  get :index, map: '/(posts)', :provides => [:html, :rss, :atom], :cache => true do
+  get :index, map: '/(posts)', :cache => true do
     @posts = Post.published.order("created_at desc")
     @description = APP_CONFIG['site_description']
     render 'posts/index'

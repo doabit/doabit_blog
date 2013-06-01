@@ -3,7 +3,7 @@ xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
   xml.channel do
     xml.title APP_CONFIG['site_title']
     xml.description APP_CONFIG['site_description']
-    xml.link uri(url_for(:posts, :index))
+    xml.link uri(url_for(:index))
 
     for post in @posts
       xml.item do

@@ -8,7 +8,12 @@ DoabitBlog::App.controllers  do
   end
 
   get :cache_layout, provides: :js do
-    render 'layouts/cache_layout'
+    render 'home/cache_layout'
+  end
+
+  get :rss, provides: :rss do
+    @posts = Post.published.order("created_at desc")
+    render 'home/rss'
   end
 
   delete :logout, :map => '/logout' do

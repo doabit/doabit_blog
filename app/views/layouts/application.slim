@@ -12,8 +12,7 @@ html
     = favicon_tag 'favicon.ico'
     link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet'
     = stylesheet_link_tag "/skins/#{APP_CONFIG['skin']}/stylesheets/application"
-    = feed_tag(:rss, url(:posts, :index, :format => :rss),:title => "RSS")
-    = feed_tag(:atom, url(:posts, :index, :format => :atom),:title => "ATOM")
+    = feed_tag(:rss, url(:rss),:title => "#{APP_CONFIG['site_title']}")
 
   body
     .container-fluid
@@ -21,8 +20,8 @@ html
         .login-block
 
         .logo-block
-          =link_to 'Doabit', '/', class: 'logo-cell logo'
-          =link_to 'Home', '/posts', class: 'logo-cell nav-1'
+          =link_to 'Doabit', 'javascript:void(0)', class: 'logo-cell logo'
+          =link_to 'Home', '/', class: 'logo-cell nav-1'
           =link_to 'Tags', '/tags', class: 'logo-cell nav-2'
           =link_to 'Archives', '/archives', class: 'logo-cell nav-3'
           =link_to 'About', '/about', class: 'logo-cell nav-4'
