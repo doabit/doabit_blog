@@ -40,6 +40,14 @@ GIT
       xpath (~> 2.0)
 
 GIT
+  remote: git://github.com/thoughtbot/capybara-webkit.git
+  revision: 9bbf4f6b5572f7c63485f6eca915b49c581b13b2
+  specs:
+    capybara-webkit (1.0.0)
+      capybara (~> 2.0, >= 2.0.2)
+      json
+
+GIT
   remote: git://github.com/yyuu/capistrano-rbenv.git
   revision: 0d540ac602e8bd2fc40422d0e1f02a53859a90a0
   specs:
@@ -118,6 +126,7 @@ GEM
       url_mount (~> 0.2.1)
     httpauth (0.2.0)
     i18n (0.6.4)
+    json (1.8.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
     launchy (2.3.0)
@@ -259,6 +268,7 @@ DEPENDENCIES
   capistrano-rbenv!
   capybara!
   capybara-padrino!
+  capybara-webkit!
   carrierwave
   database_cleaner
   factory_girl

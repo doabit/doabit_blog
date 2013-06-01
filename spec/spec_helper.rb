@@ -6,7 +6,7 @@ require 'database_cleaner'
 PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
 require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
 
-# Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :webkit
 Capybara.asset_host = "http://localhost:3000"
 
 
@@ -39,6 +39,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
      DatabaseCleaner.strategy = :truncation
+     DatabaseCleaner.clean_with(:truncation)
    end
 
    config.before(:each) do
@@ -55,6 +56,7 @@ RSpec.configure do |config|
    end
 
    def add_comment(post)
+     FileUtils.rm_rf(Dir['tmp/**/cache'])
      visit '/posts'
      click_link post.title
      within("#new_comment") do

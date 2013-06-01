@@ -51,8 +51,8 @@ group :test do
 
    gem 'capybara', github: 'jnicklas/capybara'
    gem 'capybara-padrino', github: 'doabit/capybara-padrino'
-   # gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit'
-   gem 'selenium-webdriver'
+   gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit'
+   # gem 'selenium-webdriver'
    gem 'database_cleaner'
    gem 'launchy', require: 'launchy'
 

@@ -14,7 +14,7 @@ describe "Admin" do
     end
   end
 
-  describe "login with weibo" do
+  describe "login with weibo", js: true do
     it "should show halt 403" do
       login_with("微博登录")
       visit '/admin'
@@ -22,7 +22,7 @@ describe "Admin" do
     end
   end
 
-  describe "login with github" do
+  describe "login with github", js: true do
     it "should show halt 403" do
       login_with("Github登录")
       visit '/admin'

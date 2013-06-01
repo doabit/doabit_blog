@@ -6,13 +6,16 @@ describe "Post" do
     @no_published = create(:post, published: false)
   end
 
+  around(:each) do
+    FileUtils.rm_rf(Dir['tmp/**/cache'])
+  end
+
   context "posts list" do
     it "list posts only published" do
       visit '/posts'
       page.should have_content @post.title
       page.should have_link 'tag1'
       page.should have_link 'tag2'
-
       page.should_not have_content @no_published.title
     end
 

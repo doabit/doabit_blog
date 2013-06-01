@@ -1,5 +1,10 @@
 
 @import url(http://fonts.googleapis.com/css?family=Lobster+Two);
+@import '/stylesheets/bootstrap/bootstrap.min.css';
+@import '/stylesheets/bootstrap/bootstrap-responsive.min.css';
+@import '/stylesheets/jquery.pnotify.default.css';
+@import '/stylesheets/jquery.pnotify.default.icons.css';
+@import '/stylesheets/code.css';
 
 body{
   background: #f8efd0 url(../images/bg.jpg) center top repeat-x fixed;

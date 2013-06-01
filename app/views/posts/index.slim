@@ -1,12 +1,1 @@
--@posts.each do |post|
-  .article
-      .post_date
-        .q-day = get_day(post.published_at)
-        .q-month-year = get_year_manth(post.published_at)
-      .imags-list
-      h1.post-title =link_to post.title, url(:posts, :show, post.to_param)
-      .article-content=truncate_html(markdown(post.content), length:400, word_boundary: false)
-      .article-footer
-        .tag-lists
-          -post.tags.each do |tag|
-            span=link_to tag.name, url(:tags, :show, tag.name)
+= partial 'posts/post', :collection => @posts

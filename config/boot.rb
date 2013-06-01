@@ -37,12 +37,15 @@ I18n.default_locale = :zh_cn
 # Add your before (RE)load hooks here
 #
 Padrino.before_load do
+  # DoabitBlog::App.load_paths << Padrino.root('app', 'observers')
 end
 
 ##
 # Add your after (RE)load hooks here
 #
 Padrino.after_load do
+  ActiveRecord::Base.observers = [PostObserver]
+  ActiveRecord::Base.instantiate_observers
 end
 
 Padrino.load!

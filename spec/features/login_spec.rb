@@ -2,7 +2,7 @@
 require 'spec_helper'
 describe "the signup process" do
 
-  it "Weibo Login" do
+  it "Weibo Login", js: true do
     visit '/'
     page.should have_link "微博登录"
     click_link("微博登录")
@@ -19,7 +19,7 @@ describe "the signup process" do
     page.should_not have_content "weibo_uname"
   end
 
-  it "Github Login" do
+  it "Github Login", js: true do
     visit '/'
     page.should have_link "Github登录"
     click_link("Github登录")

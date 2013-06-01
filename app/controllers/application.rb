@@ -1,15 +1,15 @@
 DoabitBlog::App.controllers  do
 
-  get :index , :map => '/' do
+  get :index , :map => '/', :cache => true do
     @posts = Post.published.order("created_at desc")
     @description = APP_CONFIG['site_description']
+    # cache_key '/posts'
     render 'posts/index'
   end
 
-  # get :profile do
-  #   content_type :text
-  #   current_account.to_yaml
-  # end
+  get :cache_layout, provides: :js do
+    render 'layouts/cache_layout'
+  end
 
   delete :logout, :map => '/logout' do
     set_current_account(nil)

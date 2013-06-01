@@ -1,0 +1,13 @@
+- if logged_in?
+  span=current_account.name
+  = button_to '退出', url(:logout), :method => :delete do
+      = submit_tag '退出',class:'btn btn-link'
+
+- else
+  span
+    =link_to('Github登录', '/auth/github')
+    | &nbsp; 或 &nbsp;
+    =link_to('微博登录',  '/auth/weibo')
+span.rss
+  =link_to 'RSS', url(:posts, :index, :format => :rss)
+  =link_to 'ATOM', url(:posts, :index, :format => :atom)
