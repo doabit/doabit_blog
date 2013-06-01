@@ -8,6 +8,7 @@ development: &default
   GITHUB_KEY: ''
   GITHUB_SECRET: ''
   analytics_code: ''
+  search_ping: false
 
 test:
   <<: *default

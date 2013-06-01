@@ -14,6 +14,7 @@ DoabitBlog::Admin.controllers :posts do
   post :create do
     @post = Post.new(params[:post])
     if @post.save
+      ping_search_engine(@post) if APP_CONFIG['search_ping']
       @title = pat(:create_title, :model => "post #{@post.id}")
       flash[:success] = pat(:create_success, :model => 'Post')
       params[:save_and_continue] ? redirect(url(:posts, :index)) : redirect(url(:posts, :edit, :id => @post.id))
@@ -78,9 +79,9 @@ DoabitBlog::Admin.controllers :posts do
     end
     ids = params[:post_ids].split(',').map(&:strip).map(&:to_i)
     posts = Post.find(ids)
-    
+
     if Post.destroy posts
-    
+
       flash[:success] = pat(:destroy_many_success, :model => 'Posts', :ids => "#{ids.to_sentence}")
     end
     redirect url(:posts, :index)

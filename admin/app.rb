@@ -1,3 +1,4 @@
+require 'xmlrpc/client'
 module DoabitBlog
   class Admin < Padrino::Application
     use ActiveRecord::ConnectionAdapters::ConnectionManagement
@@ -7,6 +8,30 @@ module DoabitBlog
     register Padrino::Admin::AccessControl
 
     set :session_id, "my_shared_session_id"
+
+    helpers do
+      def ping_search_engine(post)
+        # http://www.google.cn/intl/zh-CN/help/blogsearch/pinging_API.html
+        # http://www.baidu.com/search/blogsearch_help.html
+        baidu = XMLRPC::Client.new2("http://ping.baidu.com/ping/RPC2")
+        baidu.timeout = 5  # set timeout 5 seconds
+        baidu.call("weblogUpdates.extendedPing",
+                   APP_CONFIG['site_title'],
+                   APP_CONFIG['site_domain'],
+                   APP_CONFIG['site_domain'] + DoabitBlog::App.url(:posts, :show, id: post),
+                   APP_CONFIG['site_domain'] + '/rss')
+
+        google = XMLRPC::Client.new2("http://blogsearch.google.com/ping/RPC2")
+        google.timeout = 5  # set timeout 5 seconds
+        google.call("weblogUpdates.extendedPing",
+                    APP_CONFIG['site_title'],
+                    APP_CONFIG['site_domain'],
+                    APP_CONFIG['site_domain'] + DoabitBlog::App.url(:posts, :show, id: post),
+                    APP_CONFIG['site_domain'] + '/rss')
+      rescue Exception => e
+        logger.error e
+      end
+    end
 
     ##
     # Application configuration options
