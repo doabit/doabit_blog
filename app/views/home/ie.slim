@@ -1,0 +1,27 @@
+doctype 5
+html
+  head
+    /[if lt IE 9]
+      script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
+    meta content='text/html; charset=utf-8' http-equiv='Content-Type'
+    meta name='viewport' content='width=device-width,initial-scale=1.0'
+    title = @title.present? ? "#{@title} - #{APP_CONFIG['site_title']}" : "#{APP_CONFIG['site_title']}"
+    - if @description
+      meta name='description' content="#{@description}"
+    meta name='author' content='doabit'
+    = favicon_tag 'favicon.ico'
+    link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet'
+    = stylesheet_link_tag "/skins/#{APP_CONFIG['skin']}/stylesheets/application"
+    = feed_tag(:rss, url(:rss),:title => "#{APP_CONFIG['site_title']}")
+
+  body
+    .container-fluid
+      .row-fluid
+        .alert.alert-error style="margin-top: 60px"
+          p
+            | 不好意思，本站不支持IE9以下的老版IE，请升级IE，或者换
+            =link_to 'Chrome', 'https://www.google.com/intl/zh-CN/chrome/browser/'
+            | 或者
+            =link_to 'Firefox', 'http://www.mozilla.org/en-US/firefox/new/'
+  = javascript_include_tag 'jquery', 'jquery-ujs', 'bootstrap/bootstrap.min', 'jquery.pnotify', 'timeago', 'jquery.timeago.zh-CN', "/skins/#{APP_CONFIG['skin']}/javascripts/application"
+  =APP_CONFIG['analytics_code'].html_safe

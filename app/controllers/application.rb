@@ -37,4 +37,8 @@ DoabitBlog::App.controllers  do
     redirect '/'
   end
 
+  get '/ie' do
+    render 'home/ie', layout: false
+  end
+
 end
